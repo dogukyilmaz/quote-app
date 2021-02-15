@@ -1408,7 +1408,7 @@ atob@^2.1.2:
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
-autoprefixer@^10.0.1:
+autoprefixer@^10.0.1, autoprefixer@^10.2.4:
   version "10.2.4"
   resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-10.2.4.tgz#c0e7cf24fcc6a1ae5d6250c623f0cb8beef2f7e1"
   integrity sha512-DCCdUQiMD+P/as8m3XkeTUkUKuuRqLGcwD0nll7wevhqoJfMRpJlkFd1+MQh1pvupjiQuip42lc/VFvfUTMSKw==
@@ -5189,7 +5189,7 @@ postcss@^6.0.9:
     source-map "^0.6.1"
     supports-color "^5.4.0"
 
-postcss@^8.1.14, postcss@^8.1.6, postcss@^8.2.1, postcss@^8.2.4:
+postcss@^8.1.6, postcss@^8.2.1, postcss@^8.2.4, postcss@^8.2.6:
   version "8.2.6"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.2.6.tgz#5d69a974543b45f87e464bc4c3e392a97d6be9fe"
   integrity sha512-xpB8qYxgPuly166AGlpRjUdEYtmOWx2iCwGmrv4vqZL9YPVviDVPZPRXxnXr6xPZOdxQ9lp3ZBFCRgWJ7LE3Sg==
