@@ -16,25 +16,30 @@
         <a class='p-3' href="">Home</a>
       </li>
       <li>
-        <a class='p-3' href="">Dashboard</a>
+        <a class='p-3' href="{{ route('dashboard') }}">Dashboard</a>
       </li>
       <li>
         <a class='p-3' href="">Post</a>
       </li>
     </ul>
     <ul class='flex items-center'>
-      <li>
-        <a class='p-3' href="">Kaan Yilmaz</a>
-      </li>
-      <li>
-        <a class='p-3' href="">Login</a>
-      </li>
-      <li>
-        <a class='p-3' href="{{ route('register') }}">Register</a>
-      </li>
-      <li>
-        <a class='p-3' href="">Logout</a>
-      </li>
+
+      @auth
+        <li>
+          <a class='p-3' href="">Kaan Yilmaz</a>
+        </li>
+        <li>
+          <a class='p-3' href="">Logout</a>
+        </li>          
+      @endauth
+      @guest
+        <li>
+          <a class='p-3' href="{{ route('login') }}">Login</a>
+        </li>
+        <li>
+          <a class='p-3' href="{{ route('register') }}">Register</a>
+        </li>
+      @endguest
     </ul>
 
   </nav>
