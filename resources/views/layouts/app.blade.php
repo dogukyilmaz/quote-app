@@ -15,12 +15,12 @@
       <li>
         <a class='p-3' href="{{ route('home') }}">Home</a>
       </li>
-     @auth
+      @auth
       <li>
         <a class='p-3' href="{{ route('dashboard') }}">Dashboard</a>
       </li>
       <li>
-        <a class='p-3' href="">Post</a>
+        <a class='p-3' href="{{ route('posts') }}">Post</a>
       </li>
      @endauth
     </ul>
@@ -31,10 +31,10 @@
         <a class='p-3' href="">{{ auth()->user()->name }}</a>
       </li>
       <li>
-        <form action="{{ route('logout') }}" method="POST">
+        <form action=" {{ route('logout') }}" method="POST">
           @csrf
           <button type="submit">Logout</button>
-        </form>
+          </form>
       </li>
       @endauth
       @guest
