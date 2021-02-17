@@ -9,7 +9,11 @@ class PostController extends Controller
 {
 	public function index()
 	{
-		return view('posts.index');
+		// Collection
+		$posts = Post::get()->sortByDesc('created_at'); // all posts // ::where ::find(id) etc. eloquent
+		return view('posts.index', [
+			'posts' => $posts
+		]);
 	}
 
 	public function post(Request $req)
