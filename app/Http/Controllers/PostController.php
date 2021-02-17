@@ -9,8 +9,9 @@ class PostController extends Controller
 {
 	public function index()
 	{
-		// Collection
-		$posts = Post::get()->sortByDesc('created_at'); // all posts // ::where ::find(id) etc. eloquent
+		// Collection // all posts // ::where ::find(id) etc. eloquent
+		$posts = Post::orderBy('created_at', 'desc')->paginate(10);
+		// dd($posts);
 		return view('posts.index', [
 			'posts' => $posts
 		]);

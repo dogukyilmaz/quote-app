@@ -31,6 +31,7 @@
                     <p class="mb-2">{{ $post->content }}</p>
                 </div>
             @endforeach
+            {{ $posts->links() }}
         @else
             <p>There are no post yet.</p>
         @endif
