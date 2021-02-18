@@ -29,6 +29,15 @@
                     <a href="" class="font-bold">{{ $post->user->name }}</a>
                     <span class="text-gray-400 text-xs">{{ $post->created_at->diffForHumans() }}</span>
                     <p class="mb-2">{{ $post->content }}</p>
+
+                    <div class="flex-items-center">
+                        <form action="" method="post" class="mr-1">
+                            <button type="submit" class="text-blue-400">{{ svg('heroicon-o-bell') }}></button>
+                        </form>
+                        <form action="" method="post" class="mr-1">
+                            <button type="submit" class="text-red-400">@icon('bacon')</button>
+                        </form>
+                    </div>
                 </div>
             @endforeach
             {{ $posts->links() }}
