@@ -14,8 +14,18 @@ class Post extends Model
         // 'user_id'
     ];
 
+    public function likedBy(User $user)
+    {
+        return $this->likes->contains('user_id', $user->id);    // contains laravel collections spec.
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
     }
 }

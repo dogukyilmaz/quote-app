@@ -7,13 +7,28 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+
+	public function __construct()
+	{
+		// except, only etc...
+		$this->middleware(['auth'])->only('post', 'delete');
+	}
+
 	public function index()
 	{
 		// Collection // all posts // ::where ::find(id) etc. eloquent
-		$posts = Post::orderBy('created_at', 'desc')->paginate(10);
+		// ->orderBy('created_at', 'desc') alternative latest()
+		$posts = Post::latest()->with(['user', 'likes'])->paginate(10);
 		// dd($posts);
 		return view('posts.index', [
 			'posts' => $posts
+		]);
+	}
+
+	public function display(Post $post)
+	{
+		return view('posts.display', [
+			'post' => $post
 		]);
 	}
 
@@ -32,6 +47,13 @@ class PostController extends Controller
 
 		$req->user()->posts()->create($req->only('content'));
 
+		return back();
+	}
+
+	public function delete(Post $post)
+	{
+		$this->authorize('delete', $post);
+		$post->delete();
 		return back();
 	}
 }

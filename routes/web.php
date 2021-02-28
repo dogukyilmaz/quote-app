@@ -5,6 +5,8 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DashboardContorller;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PostLikeController;
+use App\Http\Controllers\UserPostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +25,8 @@ Route::get('/', function () {
 })->name('home');
 Route::get('/dashboard', [DashboardContorller::class, 'index'])->name(('dashboard'));
 
+Route::get('/users/{user:username}/posts', [UserPostController::class, 'index'])->name('users.posts');
+
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
 
@@ -32,4 +36,9 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 Route::get('/posts', [PostController::class, 'index'])->name('posts');
+Route::get('/posts/{post}', [PostController::class, 'display'])->name('posts.display');
 Route::post('/posts', [PostController::class, 'post']);
+Route::delete('/posts/{post}', [PostController::class, 'delete'])->name('posts.delete');
+
+Route::post('/posts/{post}/likes', [PostLikeController::class, 'like'])->name('posts.likes');
+Route::delete('/posts/{post}/likes', [PostLikeController::class, 'dislike'])->name('posts.likes');
