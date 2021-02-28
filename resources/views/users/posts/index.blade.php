@@ -5,8 +5,8 @@
       <h2 class="text-2xl font-medium mb-1">{{ $user->name }}</h2>
       <p>
         <span>Post: {{ $posts->count() }}</span>
-        <span>Likes: {{ $user->likes()->count() }}</span>
-        <span>Liked: {{ $user->liked()->count() }}</span>
+        <span>Likes: {{ $user->likes->count() }}</span>
+        <span>Liked: {{ $user->liked->count() }}</span>
       </p>
     </div>
 

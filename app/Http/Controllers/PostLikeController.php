@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\PostLiked;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class PostLikeController extends Controller
 {
@@ -25,7 +27,7 @@ class PostLikeController extends Controller
 
     public function dislike(Post $post, Request $request)
     {
-        $request->user()->likes()->where('post_id', $post->id)->delete();
+        $request->user()->liked()->where('post_id', $post->id)->delete();
         return back();
     }
 }
