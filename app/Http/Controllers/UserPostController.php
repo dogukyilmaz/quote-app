@@ -11,14 +11,14 @@ class UserPostController extends Controller
     public function index(User $user)
     {
         $posts = $user->posts()->with(['user', 'likes'])->paginate(10);
-        $likeCount = $posts->reduce(function ($carry, $item) {
-            return $carry + $item->likes->count();
-        }, 0);
+        // $likeCount = $posts->reduce(function ($carry, $item) {
+        //     return $carry + $item->likes->count();
+        // }, 0);
 
         return view('users.posts.index', [
             'user' => $user,
             'posts' => $posts,
-            'likeCount' => $likeCount
+            // 'likeCount' => $likeCount
         ]);
     }
 }

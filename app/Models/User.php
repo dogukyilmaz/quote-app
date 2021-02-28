@@ -49,8 +49,13 @@ class User extends Authenticatable
         // return $this->hasMany(Post::class, 'id', 'name'); // can use keys
     }
 
-    public function likes()
+    public function liked()
     {
         return $this->hasMany(Like::class);
+    }
+
+    public function likes()
+    {
+        return $this->hasManyThrough(Like::class, Post::class);
     }
 }
