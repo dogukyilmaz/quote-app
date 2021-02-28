@@ -18,6 +18,13 @@ class PostController extends Controller
 		]);
 	}
 
+	public function display(Post $post)
+	{
+		return view('posts.display', [
+			'post' => $post
+		]);
+	}
+
 	public function post(Request $req)
 	{
 		$this->validate($req, [

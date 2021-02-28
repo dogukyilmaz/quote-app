@@ -36,6 +36,7 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 Route::get('/posts', [PostController::class, 'index'])->name('posts');
+Route::get('/posts/{post}', [PostController::class, 'display'])->name('posts.display');
 Route::post('/posts', [PostController::class, 'post']);
 Route::delete('/posts/{post}', [PostController::class, 'delete'])->name('posts.delete');
 
