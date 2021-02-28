@@ -54,6 +54,16 @@
                         @endauth
                         <span>{{ $post->likes->count() }} {{ Str::plural('like', $post->likes->count()) }}</span>
                     </div>
+
+										@if ($post->ownedBy(auth()->user()))
+											<div>
+												<form action="{{ route('posts.delete', $post) }}" method="POST">
+													@csrf
+													@method('DELETE')
+													<button type="submit" class="text-red-500">Delete</button>
+												</form>
+											</div>
+										@endif
                 </div>
             @endforeach
             {{ $posts->links() }}

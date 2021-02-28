@@ -10,7 +10,8 @@ class PostController extends Controller
 	public function index()
 	{
 		// Collection // all posts // ::where ::find(id) etc. eloquent
-		$posts = Post::with(['user', 'likes'])->orderBy('created_at', 'desc')->paginate(10);
+		// ->orderBy('created_at', 'desc') alternative latest()
+		$posts = Post::latest()->with(['user', 'likes'])->paginate(10);
 		// dd($posts);
 		return view('posts.index', [
 			'posts' => $posts
@@ -32,6 +33,15 @@ class PostController extends Controller
 
 		$req->user()->posts()->create($req->only('content'));
 
+		return back();
+	}
+
+	public function delete(Post $post)
+	{
+		if ($post->ownedBy(auth()->user())) {
+			dd('no');
+		}
+		$post->delete();
 		return back();
 	}
 }
