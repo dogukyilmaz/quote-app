@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\PostLiked;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class DashboardContorller extends Controller
 {
@@ -13,7 +15,6 @@ class DashboardContorller extends Controller
 
     public function index()
     {
-        // dd(auth()->user()->name);
         return view('dashboard');
     }
 }

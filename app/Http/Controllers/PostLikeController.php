@@ -22,6 +22,11 @@ class PostLikeController extends Controller
         $post->likes()->create([
             'user_id' => $request->user()->id,
         ]);
+
+
+        $user = auth()->user();
+        Mail::to($post->user)->send(new PostLiked(auth()->user(), $post));
+
         return back();
     }
 
