@@ -3,7 +3,10 @@
 <div class="mb-2">
     <a href="{{ route('users.posts', $post->user) }}" class="font-bold">{{ $post->user->name }}</a>
     <span class="text-gray-400 text-xs">{{ $post->created_at->diffForHumans() }}</span>
-    <p class="mb-2">{{ $post->content }}</p>
+    
+    <a href="{{ route('posts.display', $post) }}">
+        <p class="mb-2">{{ $post->content }}</p>
+    </a>
 
     <div class="flex items-center">
         @auth
