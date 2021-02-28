@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DashboardContorller;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostLikeController;
+use App\Http\Controllers\UserPostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,8 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 Route::get('/dashboard', [DashboardContorller::class, 'index'])->name(('dashboard'));
+
+Route::get('/users/{user:username}/posts', [UserPostController::class, 'index'])->name('users.posts');
 
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
