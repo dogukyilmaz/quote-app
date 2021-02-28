@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+
+	public function __construct()
+	{
+		// except, only etc...
+		$this->middleware(['auth'])->only('post', 'delete');
+	}
+
 	public function index()
 	{
 		// Collection // all posts // ::where ::find(id) etc. eloquent
